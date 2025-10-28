@@ -1,0 +1,23 @@
+# COCO 2017 dataset http://cocodataset.org - first 128 training images
+# Train command: python train.py --data coco128.yaml
+# Default dataset location is next to YOLOv5:
+#   /parent_folder
+#     /coco128
+#     /yolov5
+
+
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+#/corruption/dual_modal/ir_rgb_45
+#/corruption/dual_modal/night_irlost
+#/corruption/dual_modal/day_rgblost
+path: E:/deeplearning/dataset/LLVIP/corruption/dual_modal/night_irlost
+train_rgb: E:/deeplearning/dataset/LLVIP/corruption/dual_modal/night_irlost/visible/train/  # 128 images
+val_rgb: E:/deeplearning/dataset/LLVIP/corruption/dual_modal/night_irlost/visible/test/  # 128 images
+train_ir: E:/deeplearning/dataset/LLVIP/corruption/dual_modal/night_irlost/infrared/train/  # 128 images
+val_ir: E:/deeplearning/dataset/LLVIP/corruption/dual_modal/night_irlost/infrared/test/  # 128 images
+
+# number of classes
+nc: 1
+
+# class names
+names: ['person']

@@ -1,0 +1,40 @@
+# pip install -r requirements.txt
+
+# base ----------------------------------------
+absl-py==2.1.0
+asttokens==2.4.1
+# blas>=1.0
+brotlipy==0.7.0
+# bzip2==1.0.8
+matplotlib==3.8.3
+numpy==1.26.0
+opencv-python==4.9.0.80
+Pillow==10.0.1
+PyYAML==6.0
+scipy==1.12.0
+torch==1.9.0
+torchtext==0.9.0
+torchaudio==2.1.0
+torchvision==0.16.0
+tqdm>=4.66.2
+einops==0.8.0
+protobuf==4.25.3
+google_auth==1.35.0
+cachetools==4.2.4
+
+# logging -------------------------------------
+tensorboard==2.17.0
+# wandb
+
+# plotting ------------------------------------
+seaborn>=0.13.2
+pandas
+
+# export --------------------------------------
+# coremltools>=4.1
+# onnx>=1.8.1
+# scikit-learn==0.19.2  # for coreml quantization
+
+# extras --------------------------------------
+thop  # FLOPS computation
+pycocotools>=2.0.8 # COCO mAP
