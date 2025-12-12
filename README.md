@@ -1,12 +1,14 @@
 ## <div align="center">DRNet: Dynamic Routing for Robust Multispectral Object Detection under Modality Missing</div>
 
 ### Introduction
-In this paper,  we propose a Dynamic Routing-based Multispectral Object Detection Network (DRNet) that introduces modality awareness and dynamic adaptation mechanisms to address the problem of modality missing in RGB-T networks. The proposed network employs a Modality-Aware Dynamic Feature Enhancement (DFE) module that adaptively routes between multimodal fusion and unimodal enhancement pathways, thereby mitigating the impact of missing modalities. We further introduce a Dynamic Feature Mapping (DFM) module that endows a shared detection head with modality-aware transformations, enabling it to adapt to fused, RGB-only, and thermal-only inputs by capturing modality-specific feature distributions and thereby enhancing cross-modal robustness. We use DFE and DFM in the implementation to refer to the concepts MADR and UFH presented in the paper.
+We propose a Dynamic Routing-based Multispectral Object Detection Network (DRNet), which is evaluated on the FLIR, KAIST, and LLVIP datasets. To address the issue of modality missing in RGB-T networks, DRNet introduces modality awareness and dynamic adaptation mechanisms. The network incorporates a Modality-Aware Dynamic Feature Enhancement (DFE) module, which adaptively routes features between multimodal fusion and unimodal enhancement pathways to reduce the impact of missing modalities. Furthermore, we propose a Dynamic Feature Mapping (DFM) module that equips a shared detection head with modality-aware transformations, allowing it to adapt to fused, RGB-only, and thermal-only inputs by capturing modality-specific feature distributions, thereby improving cross-modal robustness. In our implementation, DFE and DFM correspond to the concepts MADR and UFH introduced in the paper.
 
 ### Installation
 Install requirements.txt in a Python>=3.8.0 conda environment.
 
 ### Datasets
+The datasets encompass samples for both training and testing, covering scenarios with complete modalities and those with missing modalities.
+
 - **KAIST**  
 Link：https://pan.baidu.com/s/1DY7YkLm0yvO-0osv04m9zg 
 Code：axui 
