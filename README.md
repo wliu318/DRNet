@@ -30,7 +30,10 @@ Code: kiah
 
 - **LLVIP** 
 Link: https://pan.baidu.com/s/1JzzfX-S5X0zQcP7KWWfyhQ 
-Code: emjy 
+Code: emjy
+
+###Training and test
+To train and test the model, simply run train.py and test.py respectively. The program was developed and run in a PyCharm environment on a computer with the Windows 10 operating system.
    
 # Files
 **Note**: This is the txt files for evaluation. We continuously optimize our codes, which results in the difference in detection performance. However, the codes of module for multimodal object detection still remain consistent with the methods proposed in this paper.
