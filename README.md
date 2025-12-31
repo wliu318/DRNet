@@ -32,6 +32,37 @@ Code: kiah
 Link: https://pan.baidu.com/s/1JzzfX-S5X0zQcP7KWWfyhQ 
 Code: emjy
 
+- Download the training datasets to your disk, the organized directory should look like:
+    --datasetname/
+    	|--infrared
+         |--train
+         |--test
+      |--labels
+         |--train
+         |--test
+      |--visible
+         |--train
+         |--test
+      |--qualities
+         |--train
+         |--test
+      |--corruption
+         |--dual_modalilty
+            |--ir_rgb_5
+            |--ir_rgb_10
+            |--ir_rgb_15
+            |--ir_rgb_25
+            |--ir_rgb_35
+            |--ir_rgb_45
+            |--ir_rgb_50
+            |--ir_zero_100
+            |--rgb_zero_100
+            |--day_rgb_missing
+            |--night_ir_missing
+  
+  - Edit the paths in `./data/multispectral/FLIR.yaml`，  `./data/multispectral/kaist.yaml`, `./data/multispectral/LLVIP.yaml`  to the proper ones.
+
+
 ### Training and Test
 To train and test the model, simply run train.py and test.py respectively. The program was developed and run in a PyCharm environment on a computer with the Windows 10 operating system.
    
