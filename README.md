@@ -72,11 +72,11 @@ To train and test the model, simply run train.py and test.py respectively. The p
 
 <div align="center">
   Table 1.  Evaluation results on the FLIR dataset and its corrupted variants.  
-  ```
+ “`markdown
 | 0:0  | 100:0 | 0:100 |
 | :--- | :---: | :---: |
 | 82.2 | 62.5  | 80.4  |
-```
+“`
  
 </div>
 
