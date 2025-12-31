@@ -67,7 +67,18 @@ Code: emjy
 
 ### Training and Test
 To train and test the model, simply run train.py and test.py respectively. The program was developed and run in a PyCharm environment on a computer with the Windows 10 operating system.
-   
+
+### Evalutaion Result
+
+<div align="center">
+  Table 1.  Evaluation results on the FLIR dataset and its corrupted variants.  </div>
+| 0:0  | 100:0 | 0:100 |
+| :--- | :---: | :---: |
+| 82.2 | 62.5  | 80.4  |
+ 
+</div>
+
+
 # Files
 **Note**: This is the txt files for evaluation. We continuously optimize our codes, which results in the difference in detection performance. However, the codes of module for multimodal object detection still remain consistent with the methods proposed in this paper.
 
