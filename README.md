@@ -1,17 +1,17 @@
 ## <div align="center">DRNet: Dynamic Routing for Robust Multispectral Object Detection under Modality Missing</div>
 
 ### Introduction
-We propose a Dynamic Routing-based Multispectral Object Detection Network (DRNet), which is evaluated on the FLIR, KAIST, and LLVIP datasets. To address the issue of modality missing in RGB-T networks, DRNet introduces modality awareness and dynamic adaptation mechanisms. The network incorporates a Modality-Aware Dynamic Feature Enhancement (DFE) module, which adaptively routes features between multimodal fusion and unimodal enhancement pathways to reduce the impact of missing modalities. Furthermore, we propose a Dynamic Feature Mapping (DFM) module that equips a shared detection head with modality-aware transformations, allowing it to adapt to fused, RGB-only, and thermal-only inputs by capturing modality-specific feature distributions, thereby improving cross-modal robustness. In our implementation, DFE and DFM correspond to the concepts MADR and UFH introduced in the paper.
+We propose a Dynamic Routing-based Multispectral Object Detection Network (DRNet), which is evaluated on the FLIR, KAIST, and LLVIP datasets. To address the issue of modality missing in RGB-T networks, DRNet introduces modality awareness and dynamic adaptation mechanisms. The network incorporates a Modality-Aware Dynamic Routing (MADR) module, which adaptively routes features between multimodal fusion and unimodal enhancement pathways to reduce the impact of missing modalities. Furthermore, we propose a Unified Feature Harmonize (UFH) module that equips a shared detection head with modality-aware transformations, allowing it to adapt to fused, RGB-only, and thermal-only inputs by capturing modality-specific feature distributions, thereby improving cross-modal robustness. In our implementation, Dynamic Feature Ehancement (DFE)  module and Dynamic Feature Mapping (DFM) module correspond to the concepts MADR and UFH introduced in the paper.
 
 ### Overview
 <div align="center">
   <img src="./diagram.jpg"  widt=="600" height="400" >
-  <div style="color:orange; border-bottom: 10px solid #d9d9d9; display: inline-block; color: #999; padding: 10px;"> Fig 1. Overview of DRNet framework </div>
+  <div style="color:orange; border-bottom: 10px solid #d9d9d9; display: inline-block; color: #999; padding: 10px;"> Fig 1. Overview of DRNet framework. </div>
 </div>
 
 <div align="center">
   <img src="./FE.jpg"   widt=="600" height="400" >
-  <div style="color:orange; border-bottom: 10px solid #d9d9d9; display: inline-block; color: #999; padding: 10px;"> Fig 2. Illustration of the feature enhancement module of MADR module </div>
+  <div style="color:orange; border-bottom: 10px solid #d9d9d9; display: inline-block; color: #999; padding: 10px;"> Fig 2. Illustration of the feature enhancement modules of MADR module corresponding to FE1, FE2, FE3 in Fig 1. </div>
 </div>
 
 ### Installation
