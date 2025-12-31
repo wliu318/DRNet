@@ -34,7 +34,7 @@ Code: kiah
 Link: https://pan.baidu.com/s/1JzzfX-S5X0zQcP7KWWfyhQ 
 Code: emjy
 
-- Download the training datasets to your disk, the organized directory should look like:
+Download the training datasets to your disk, the organized directory should look like:
 ```
     --datasetname:
     	|--infrared
