@@ -33,7 +33,8 @@ Link: https://pan.baidu.com/s/1JzzfX-S5X0zQcP7KWWfyhQ
 Code: emjy
 
 - Download the training datasets to your disk, the organized directory should look like:
-    --datasetname/
+```
+    --datasetname:
     	|--infrared
          |--train
          |--test
@@ -59,6 +60,7 @@ Code: emjy
             |--rgb_zero_100
             |--day_rgb_missing
             |--night_ir_missing
+  ```
   
   - Edit the paths in `./data/multispectral/FLIR.yaml`，  `./data/multispectral/kaist.yaml`, `./data/multispectral/LLVIP.yaml`  to the proper ones.
 
