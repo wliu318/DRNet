@@ -24,7 +24,7 @@ We define the modality-missing rates on the three multimodal datasets as 0, 5%, 
 
 - **KAIST**  Link：https://pan.baidu.com/s/1DY7YkLm0yvO-0osv04m9zg Code：axui 
 
-- **FLIR**   Link：https://pan.baidu.com/s/1xkdnuPpRwSabuxYmQaT9Ig Code: kiah 
+- **FLIR**    Link：https://pan.baidu.com/s/1xkdnuPpRwSabuxYmQaT9Ig Code: kiah 
 
 - **LLVIP**  Link: https://pan.baidu.com/s/1JzzfX-S5X0zQcP7KWWfyhQ Code: emjy
 
