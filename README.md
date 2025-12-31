@@ -62,7 +62,7 @@ Code: emjy
             |--night_ir_missing
   ```
   
-  - Edit the paths in `./data/multispectral/FLIR.yaml`，  `./data/multispectral/kaist.yaml`, `./data/multispectral/LLVIP.yaml`  to the proper ones.
+  Edit the paths in `./data/multispectral/FLIR.yaml`，  `./data/multispectral/kaist.yaml`, `./data/multispectral/LLVIP.yaml`  to the proper ones.
 
 
 ### Training and Test
