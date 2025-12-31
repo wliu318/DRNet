@@ -77,7 +77,7 @@ To train and test the model, simply run train.py and test.py respectively. The p
 
 
 # Files
-**Note**: This is the txt files for evaluation. We continuously optimize our codes, which results in the difference in detection performance. However, the codes of module for multimodal object detection still remain consistent with the methods proposed in this paper.
+**Note**: This is the txt files for evaluation. We continuously optimize our codes, which results in the difference in detection performance. However, the codes of module for multispectral object detection still remain consistent with the methods proposed in this paper.
 
 
 
