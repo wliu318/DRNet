@@ -15,7 +15,7 @@ We propose a Dynamic Routing-based Multispectral Object Detection Network (DRNet
 </div>
 
 ### Installation
-Install requirements.txt in a Python>=3.8.0 conda environment.
+We use "conda create --name DRNet python=3.8" to create a environment and install the dependencies in requirements.txt. 
 
 ### Datasets
 The datasets encompass samples for both training and testing, covering scenarios with complete modalities and those with missing modalities.
