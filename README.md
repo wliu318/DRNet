@@ -71,7 +71,7 @@ Code: emjy
 To train and test the model, simply run train.py and test.py respectively. The program was developed and run in a PyCharm environment on a computer with the Windows 10 operating system.
 
 ### Evalutaion Result
-<div align="center">  Table 1.  Evaluation results of mAP50 on the FLIR, KAIST and LLVIP datasets and its corrupted variants. 
+<div align="center">  Table 1.  Evaluation results of mAP50 on the FLIR, KAIST and LLVIP datasets and their corrupted variants. 
   
 | dataset      | 0:0          | 100：0      | 0：100            | Night: T-Missing | Day: RGB-Missing |
 |:------------:|:------------:|:-----------:|:-----------------:|:---------------:|:------------:|
