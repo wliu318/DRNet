@@ -5,12 +5,12 @@ We propose a Dynamic Routing-based Multispectral Object Detection Network (DRNet
 
 ### Overview
 <div align="center">
-  <img src="https://github.com/wliu318/DRNet/diagram" width="600px">
+  <img src="https://github.com/wliu318/DRNet/main/diagram.jpg" width="600px">
   <div style="color:orange; border-bottom: 10px solid #d9d9d9; display: inline-block; color: #999; padding: 10px;"> Fig 1. Overview of DRNet framework </div>
 </div>
 
 <div align="center">
-  <img src="https://github.com/wliu318/DRNet/FE" width="600px">
+  <img src="https://github.com/wliu318/DRNet/mian/FE.jpg" width="600px">
   <div style="color:orange; border-bottom: 10px solid #d9d9d9; display: inline-block; color: #999; padding: 10px;"> Fig 2. Illustration of the feature enhancement module of MADR module </div>
 </div>
 
