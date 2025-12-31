@@ -19,13 +19,10 @@ We use "conda create --name DRNet python=3.8" to create a environment and instal
 
 ### Datasets
 The datasets encompass samples for both training and testing, covering scenarios with complete modalities and those with missing modalities.
-
 We define the modality-missing rates on the three multimodal datasets as 0, 5%, 10%, 15%, 25%, 35%, 40%, 45%, 50%, and 100%. This spectrum of rates comprises the full-modality scenario (0%), scenarios with partial modality missing, and the scenarios of complete RGB or thermal missing (100%). For each sample, only one modality is randomly dropped at a time, ensuring the two modalities never fail simultaneously. The missing modality is replaced with a zero-filled tensor (i.e., all pixel values are set to zero). The modality-missing data are then mixed with intact multimodal data to form new training and test sets containing partial modality missing. We denote the overall missing condition by the pair T:V, where T and V represent the missing rates for the thermal and RGB modalities, respectively. This results in 11 dataset variants: 0:0, 5:5, 10:10, 15:15, 25:25, 35:35, 40:40, 45:45, 50:50, 100:0, and 0:100. Additionally, based on the test sets of the three original datasets, we generated two specific failure scenarios: complete RGB missing in daytime scenes and complete thermal missing in nighttime scenes.
 
 - **KAIST**  Link：https://pan.baidu.com/s/1DY7YkLm0yvO-0osv04m9zg Code：axui 
-
 - **FLIR**    Link：https://pan.baidu.com/s/1xkdnuPpRwSabuxYmQaT9Ig Code: kiah 
-
 - **LLVIP**  Link: https://pan.baidu.com/s/1JzzfX-S5X0zQcP7KWWfyhQ Code: emjy
 
 Download the datasets to your disk, the organized directory should look like:
