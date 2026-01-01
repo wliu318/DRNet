@@ -29,7 +29,7 @@ We define the modality-missing rates on the three multimodal datasets as 0, 5%, 
 Download the datasets to your disk, the organized directory should look like:
 ```
     --datasetname:
-     |--infrared
+      |--infrared
          |--train
          |--test
       |--labels
