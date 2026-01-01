@@ -5,7 +5,7 @@ We propose a Dynamic Routing-based Multispectral Object Detection Network (DRNet
 
 ### Overview
 <div align="center">
-  <img src="./DRNet framework.jpg"  widt=="800" height="600" >
+  <img src="./DRNet framework.jpg"  widt=="700" height="500" >
   <div style="color:orange; border-bottom: 10px solid #d9d9d9; display: inline-block; color: #999; padding: 10px;"> Fig 1. Overview of DRNet framework. </div>
 </div>
 
