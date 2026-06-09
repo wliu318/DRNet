@@ -1514,16 +1514,34 @@ class DFE(nn.Module):
 
         # gate_trian_scores = torch.rand_like(gate_scores)     #训练特征映射时使用随机路径选择
 
-        topk_weights, topk_indices = torch.topk(gate_scores, self.top_k, dim=-1)  # (bs, topk)
-        topk_weights = F.softmax(topk_weights, dim=-1)  # 归一化
-        output = torch.zeros_like(x[0])  # (bs, c, h, w)
-        for i in range(self.top_k):
-            expert_idx = topk_indices[:, i]  # (bs,)
-            expert_weight = topk_weights[:, i].view(bs, 1, 1, 1)  # (bs, 1, 1, 1)
-            mask = F.one_hot(expert_idx, num_classes=self.num_modal).float()
-            expert_output = torch.stack([self.experts1(x), self.experts2(x), self.experts3(x)], dim=1)  #torch.stack([expert(x) for expert in self.experts], dim=1)  # (bs, c, h, w)
-            selected_output = (expert_output * mask.unsqueeze(-1).unsqueeze(-1).unsqueeze(-1)).sum(dim=1)
-            output += expert_weight * selected_output
+        #topk_weights, topk_indices = torch.topk(gate_scores, self.top_k, dim=-1)  # (bs, topk)
+        #topk_weights = F.softmax(topk_weights, dim=-1)  # 归一化
+        # output = torch.zeros_like(x[0])  # (bs, c, h, w)
+        # for i in range(self.top_k):
+        #     expert_idx = topk_indices[:, i]  # (bs,)
+        #     expert_weight = topk_weights[:, i].view(bs, 1, 1, 1)  # (bs, 1, 1, 1)
+        #     mask = F.one_hot(expert_idx, num_classes=self.num_modal).float()
+        #     expert_output = torch.stack([self.experts1(x), self.experts2(x), self.experts3(x)], dim=1)  #torch.stack([expert(x) for expert in self.experts], dim=1)  # (bs, c, h, w)
+        #     selected_output = (expert_output * mask.unsqueeze(-1).unsqueeze(-1).unsqueeze(-1)).sum(dim=1)
+        #     output += expert_weight * selected_output
+        probs = F.softmax(gate_scores, dim=-1)  # (bs, 3)
+        if self.training:
+            probs = probs.float()
+            hard_choice = torch.argmax(probs, dim=-1)
+            one_hot = F.one_hot(hard_choice, num_classes=self.num_modal).float()
+            routing_weights = one_hot + (probs - probs.detach())
+        else:
+            hard_choice = torch.argmax(probs, dim=-1)
+            routing_weights = F.one_hot(hard_choice, num_classes=self.num_modal).float()
+        routing_weights = routing_weights.to(x[0].dtype)
+
+        expert1_out = self.experts1(x)
+        expert2_out = self.experts2(x)
+        expert3_out = self.experts3(x)
+
+        output = (routing_weights[:, 0:1].unsqueeze(-1).unsqueeze(-1) * expert1_out) + \
+                 (routing_weights[:, 1:2].unsqueeze(-1).unsqueeze(-1) * expert2_out) + \
+                 (routing_weights[:, 2:3].unsqueeze(-1).unsqueeze(-1) * expert3_out)
 
         # return output
         return output, gate_scores
