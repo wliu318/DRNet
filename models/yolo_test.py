@@ -71,17 +71,35 @@ class FeatureMappingModule(nn.Module):
 
         x_pooled = F.adaptive_avg_pool2d(x, (1, 1)).view(bs, c)  # 对通道维度进行全局平均池化，得到 (bs, c)
         gate_scores = self.gate(x_pooled)  # (bs, num_experts)
-        topk_weights, topk_indices = torch.topk(gate_scores, self.top_k, dim=-1)  # (bs, topk)
-        topk_weights = F.softmax(topk_weights, dim=-1)  # 归一化
+        # topk_weights, topk_indices = torch.topk(gate_scores, self.top_k, dim=-1)  # (bs, topk)
+        # topk_weights = F.softmax(topk_weights, dim=-1)  # 归一化
 
-        output = torch.zeros_like(x)  # (bs, c, h, w)
-        for i in range(self.top_k):
-            expert_idx = topk_indices[:, i]  # (bs,)
-            expert_weight = topk_weights[:, i].view(bs, 1, 1, 1)  # (bs, 1, 1, 1)
-            mask = F.one_hot(expert_idx, num_classes=self.num_experts).float()
-            expert_output = torch.stack([expert(x) for expert in self.experts], dim=1)  # (bs, c, h, w)
-            selected_output = (expert_output * mask.unsqueeze(-1).unsqueeze(-1).unsqueeze(-1)).sum(dim=1)
-            output += expert_weight * selected_output
+        # output = torch.zeros_like(x)  # (bs, c, h, w)
+        # for i in range(self.top_k):
+        #     expert_idx = topk_indices[:, i]  # (bs,)
+        #     expert_weight = topk_weights[:, i].view(bs, 1, 1, 1)  # (bs, 1, 1, 1)
+        #     mask = F.one_hot(expert_idx, num_classes=self.num_experts).float()
+        #     expert_output = torch.stack([expert(x) for expert in self.experts], dim=1)  # (bs, c, h, w)
+        #     selected_output = (expert_output * mask.unsqueeze(-1).unsqueeze(-1).unsqueeze(-1)).sum(dim=1)
+        #     output += expert_weight * selected_output
+		probs = F.softmax(gate_scores, dim=-1)  # (bs, num_experts)
+        if self.training:
+            probs = probs.float()
+            topk_probs, topk_indices = torch.topk(probs, self.top_k, dim=-1)
+            expert_outputs = torch.stack([expert(x) for expert in self.experts], dim=1)
+            routing_weights = torch.zeros(bs, self.num_experts, device=x.device, dtype=torch.float32)
+            for i in range(self.top_k):
+                routing_weights.scatter_(1, topk_indices[:, i:i + 1], 1.0)
+                routing_weights = routing_weights + (topk_probs[:, i:i + 1] - topk_probs[:, i:i + 1].detach())
+            routing_weights = routing_weights / (routing_weights.sum(dim=-1, keepdim=True) + 1e-8)
+            routing_weights = routing_weights.to(expert_outputs.dtype)
+        else:
+            topk_indices = torch.topk(probs, self.top_k, dim=-1)[1]
+            expert_outputs = torch.stack([expert(x) for expert in self.experts], dim=1)
+            routing_weights = torch.zeros(bs, self.num_experts, device=x.device, dtype=expert_outputs.dtype)
+            for i in range(self.top_k):
+                routing_weights.scatter_(1, topk_indices[:, i:i + 1], 1.0 / self.top_k)
+        output = (routing_weights.view(bs, self.num_experts, 1, 1, 1) * expert_outputs).sum(dim=1)
 
         return output #+ self.shortcut(x)
 
